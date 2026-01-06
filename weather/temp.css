@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono:wght@400;500&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: url('https://i.pinimg.com/1200x/73/97/be/7397be8f79f246fd1411d46019451e15.jpg');
+    background-size: cover;
+    color: white;
+}
+#temperature, 
+.location p, 
+#direction, 
+#wind-speed, 
+.guts span {
+    font-family: 'Roboto Mono', monospace; 
+    letter-spacing: -1px; 
+}
+
+
+.location span {
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+h1 {
+    text-align: center;
+}
+.weather {
+    text-align: center;
+    margin-top: 50px;
+}
+#weather-icon {
+    width: 10%;
+    height: 10%;
+}
+#temperature {
+    margin-top: 5px;
+    font-size: 5em;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.geo {
+    margin-left: 20rem;
+    margin-right: 20rem;
+    display: flex;
+    gap: 35rem;
+}
+.location {
+    font-size: 1em;
+}
+.out1 {
+    width: 130px;
+    height: 130px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+  margin: auto;
+  
+  position: relative;
+  justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.in1 {
+    width: 90px;
+    height: 90px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(4px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+.in1 p {
+    margin: 2px 0; 
+    font-size: 0.9rem;
+}
+#wind-icon {
+    width: 15px; 
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+#cardinal {
+    position: absolute; 
+    font-weight: bold;
+    font-size: 14px;
+    color: silver;
+    text-shadow: 0 0 5px black;
+}
+.out1 .N { top: 5px; left: 50%; transform: translateX(-50%); }
+.out1 .S { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.out1 .E { right: 8px; top: 50%; transform: translateY(-50%); }
+.out1 .W { left: 4px; top: 50%; transform: translateY(-50%); }
+.guts {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    display: flex;
+    gap: 20%;
+    width: 70%;
+    height: 2rem;
+    border: 1px solid silver;
+    border-radius: 10px;
+    padding: auto;
+    padding-top: .5rem;
+    padding-left: 4rem;
+    background: rgba(255, 255, 255, 0.2);
+}
+@keyframes orbit {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(30deg); }
+    60% { transform: rotate(0deg); }
+    80% { transform: rotate(-30deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+.in1 {  animation: orbit 10s linear infinite; }
