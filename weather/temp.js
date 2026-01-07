@@ -1,4 +1,42 @@
-async function getweather() {
+async function searchCity() {
+    const cityInput = document.getElementById("city-input");
+    const city = cityInput.value;
+
+    if (!city) {
+        alert("Please enter a city name");
+        return;
+    }
+    try {
+        
+        const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`);
+        const data = await response.json();
+
+        if (!data.results) {
+            alert("City not found!");
+            return;
+        }
+
+        
+        const result = data.results[0];
+        const lat = result.latitude;
+        const long = result.longitude;
+        const name = result.name;
+
+
+
+        getWeather(lat, long, name);
+        
+    } catch (error) {
+        console.error("Error finding city:", error);
+    }
+}
+
+document.getElementById("city-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        searchCity();
+    }
+});
+async function getWeather(lat = 7.38, long = 3.93, name = "Ibadan") {
     const temperatureElement = document.getElementById("temperature");
     const weatherIconElement = document.getElementById("weather-icon");
     const weatherDescriptionElement = document.getElementById("weather-description");
@@ -12,8 +50,10 @@ async function getweather() {
     const timezoneElement = document.getElementById("timezone");
     const unitsElement = document.getElementById("units");
 
+    document.getElementById("city-name").innerText = `Weather in ${name}`;
+
     try{
-    const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=7.38&longitude=3.93&current_weather=true&temperature_unit=celsius');
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true&temperature_unit=celsius`);
     const data = await response.json();
     console.log(data);
 
@@ -27,7 +67,7 @@ async function getweather() {
     const weatherType = getWeatherIcon(current.weathercode);
     weatherDescriptionElement.textContent = weatherType;
 
-    timeElement.textContent = `Updated at: ${current.time},${data.timezone}`;
+    timeElement.textContent = `Updated at: ${current.time.split('T')[1]} (${data.timezone_abbreviation || data.timezone})`;
 
     latElement.textContent = `Lat: ${data.latitude}°N`;
 
@@ -69,7 +109,6 @@ async function getweather() {
     }
 
 }
-getweather();
 
 function getWeatherIcon(code) {
 
@@ -89,3 +128,4 @@ const codeMap = {
 
     return codeMap[code] || "Cloudy";
 }
+getWeather();
