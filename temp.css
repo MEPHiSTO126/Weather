@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono:wght@400;500&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: url('https://i.pinimg.com/1200x/73/97/be/7397be8f79f246fd1411d46019451e15.jpg');
+    background-size: cover;
+    color: white;
+}
+#temperature, 
+.location p, 
+#direction, 
+#wind-speed, 
+.guts span {
+    font-family: 'Roboto Mono', monospace; 
+    letter-spacing: -1px; 
+}
+
+
+.location span {
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+#city-input {
+    padding: 12px 20px;
+    width: 250px; 
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif; 
+    color: white; 
+    background: rgba(255, 255, 255, 0.1); 
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px; 
+    backdrop-filter: blur(5px); 
+    outline: none; 
+    transition: all 0.3s ease; 
+}
+
+
+#city-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#city-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+
+.search-box button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    
+    color: white; 
+    background: #333; 
+    border: none;
+    border-radius: 30px;
+    
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.search-box button:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+}
+
+
+.search-box button:active {
+    transform: scale(0.95); 
+}
+h1 {
+    text-align: center;
+}
+.weather {
+    text-align: center;
+    margin-top: 50px;
+}
+#weather-icon {
+    width: 10%;
+    height: 10%;
+}
+#temperature {
+    margin-top: 5px;
+    font-size: 5em;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.geo {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40%;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+.location {
+    font-size: 1em;
+}
+.out1 {
+    width: 130px;
+    height: 130px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+  margin: auto;
+  
+  position: relative;
+  justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.in1 {
+    width: 90px;
+    height: 90px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(4px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+.in1 p {
+    white-space: nowrap; 
+    font-size: 0.8rem;
+    margin: 1px 0; 
+    width: 100%; 
+    text-align: center;
+}
+#wind-icon {
+    width: 15px; 
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+#cardinal {
+    position: absolute; 
+    font-weight: bold;
+    font-size: 14px;
+    color: silver;
+    text-shadow: 0 0 5px black;
+}
+.out1 .N { top: 5px; left: 50%; transform: translateX(-50%); }
+.out1 .S { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.out1 .E { right: 8px; top: 50%; transform: translateY(-50%); }
+.out1 .W { left: 4px; top: 50%; transform: translateY(-50%); }
+.guts {
+    
+    margin: 3rem auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+    border: 1px solid silver;
+    border-radius: 10px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+}
+@keyframes orbit {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(30deg); }
+    60% { transform: rotate(0deg); }
+    80% { transform: rotate(-30deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+.in1 {  animation: orbit 10s linear infinite; }
+
+
+@media (max-width: 768px) {
+    
+
+    .geo {
+        flex-direction: column; 
+        gap: 30px;
+    }
+    .location {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+ 
+    #temperature {
+        font-size: 3.5em; 
+    } 
+    .guts {
+        flex-direction: column; 
+        gap: 10px; 
+        width: 90%;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+    #city-input {
+        width: 60%; 
+    }
+    
+    .search-box button {
+        padding: 12px 15px; 
+    }
+}

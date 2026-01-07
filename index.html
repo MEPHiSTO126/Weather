@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAPI</title>
+    <link rel="icon" href="./images/cloudy.png">
+    <script src="temp.js" defer></script>
+    <link rel="stylesheet" href="temp.css">
+</head>
+<body>
+    <div class="search-box">
+    <input type="text" id="city-input" placeholder="Enter city name...">
+    <button onclick="searchCity()">Search</button>
+    </div>
+    <h1 id="city-name">Weather in Ibadan</h1>
+    <div class="weather">
+        <img id="weather-icon" src="" alt="Weather Icon">
+        <p id="temperature">Loading...</p>
+        <span id="weather-description">Loading...</span>
+        <p id="time">Loading...</p>
+    </div>
+    <div class="geo">
+        <div class="location">
+            <span>Location</span>
+            <p id="latitude">Loading...</p>
+            <p id="longitude">Loading...</p>
+            <p id="elevation">Loading...</p>
+        </div>
+        <div class="compass">
+            <div class="out1">
+                <div class="N" id="cardinal">N</div>
+                <div class="E" id="cardinal">E</div>
+                <div class="S" id="cardinal">S</div>
+                <div class="W" id="cardinal">W</div>
+                <div class="in1">
+                    <p id="direction">...</p>
+                    <p><img id="wind-icon" src="./images/wind.png" alt="wind-icon">
+                        <span id="wind-speed">...</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="guts">
+        <span id="generation-time">Loading...</span>
+        <span id="timezone">Loading...</span>
+        <span id="units">Loading...</span>
+    </div>
+</body>
+</html>
